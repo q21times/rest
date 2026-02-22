@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>шестерочка</title>
+</head>
+<body>
+<a data-th-href="@{/catalogue/products/list}">← к списку товаров</a>
+<h1>Редактирование товаров [[${product.title}]]</h1>
+<a th:href="@{/catalogue/products/{productId}(productId=${product.id})}">
+    к товару
+</a>
+<form method="post" data-th-action="@{/catalogue/products/{productId}/edit(productId=${product.id})}">
+    <label>
+        название:<br>
+        <input type="text" name="title" data-th-value="${product.title}">
+    </label><br>
+    <label>
+        Описание:<br>
+        <input type="text" name="details" data-th-value="${product.details}">
+    </label>
+    <button type="submit">Изменить</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>шестерочка</title>
+</head>
+<body>
+<a data-th-href="@{/catalogue/products/create}">создание нового товара</a>
+<h1>Список продуктов</h1>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Название</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}">1</td>
+        <td>
+            <a th:href="@{/catalogue/products/{productId}(productId=${product.id})}"
+               th:text="${product.title}">
+                Название товара
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
